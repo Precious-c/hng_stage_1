@@ -1,0 +1,32 @@
+import { Request, Response } from "express";
+import { getFacts, getProperties, isPerfect, isPrime, sumOfDigits } from "../utils/number.utils";
+
+const classifyNumber = async (req: Request, res: Response) => {
+  try {
+    const { number } = req.params;
+    const num = Number(number);
+
+    if (isNaN(num)) {
+      res.status(400).json({ number: "alphabet", error: true });
+      return;
+    }
+
+    const result = {
+      number: num,
+      is_prime: isPrime(num),
+      is_perfect: isPerfect(num),
+      properties: getProperties(num),
+      digit_sum: sumOfDigits(num),
+      fun_fact: await getFacts(num),
+    };
+
+    res.status(200).json(result);
+    return;
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal Server Error" });
+    return;
+  }
+};
+
+export default classifyNumber;
