@@ -11,6 +11,12 @@ const classifyNumber = async (req: Request, res: Response) => {
       return;
     }
 
+    // Checks if number is an integer
+    if (!Number.isInteger(num)) {
+      res.status(400).json({ number: "Not an integer", error: true });
+      return;
+    }
+
     const result = {
       number: num,
       is_prime: isPrime(num),
