@@ -24,6 +24,6 @@ app.get("/", (req: Request, res: Response) => {
   res.status(200).json({ message: "Welcome to the Number Classification API" });
 });
 
-app.get("/api/classify-number/:number", classifyNumber);
+app.get("/api/classify-number", classifyNumber);
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

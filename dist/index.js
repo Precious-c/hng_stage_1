@@ -23,5 +23,5 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to the Number Classification API" });
 });
-app.get("/api/classify-number/:number", classifyNumberController_1.default);
+app.get("/api/classify-number", classifyNumberController_1.default);
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

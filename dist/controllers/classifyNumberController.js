@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const number_utils_1 = require("../utils/number.utils");
 const classifyNumber = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { number } = req.params;
+        const { number } = req.query;
         const num = Number(number);
         if (isNaN(num)) {
             res.status(400).json({ number: "alphabet", error: true });

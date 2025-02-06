@@ -3,7 +3,7 @@ import { getFacts, getProperties, isPerfect, isPrime, sumOfDigits } from "../uti
 
 const classifyNumber = async (req: Request, res: Response) => {
   try {
-    const { number } = req.params;
+    const { number } = req.query;
     const num = Number(number);
 
     if (isNaN(num)) {
